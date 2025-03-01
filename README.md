@@ -1,7 +1,7 @@
 # Identificação
 
-**Nome** Enzo Gabriel Barros Vieira
-**Número de Identificação** A98352
+**Nome**: Enzo Gabriel Barros Vieira
+**Número de Identificação**: A98352
 
 # Sobre o repositório
 
