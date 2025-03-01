@@ -1,6 +1,6 @@
 # Somador on/off: criar programa em Python (sem usar expressões regulares)
 
-## 2025-02-28
+## 2025-02-07
 
 ## Autor:
 
