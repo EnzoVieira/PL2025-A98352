@@ -1,0 +1,21 @@
+# Exemplo
+
+## Outro Exemplo
+
+### Exemplo ainda menor
+
+Este é um **exemplo**
+
+Este é um *exemplo*
+
+1. Primeiro Item
+2. Segundo Item
+3. Terceiro Item
+# Outra lista
+1. Outro Primeiro Item
+2. Outro Segundo Item
+3. Outro Terceiro Item
+
+Como pode ser consultado em [página da UC](http://www.uc.pt)
+
+Como se vê na imagem seguinte: ![imagem dum coelho](http://www.coelho.com)
