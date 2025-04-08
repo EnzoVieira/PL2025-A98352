@@ -1,0 +1,245 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> exp
+Rule 1     exp -> exp PLUS fac
+Rule 2     exp -> exp MINUS fac
+Rule 3     exp -> fac
+Rule 4     fac -> fac MUL term
+Rule 5     fac -> fac DIV term
+Rule 6     fac -> term
+Rule 7     term -> LP exp RP
+Rule 8     term -> NUMBER
+
+Terminals, with rules where they appear
+
+DIV                  : 5
+LP                   : 7
+MINUS                : 2
+MUL                  : 4
+NUMBER               : 8
+PLUS                 : 1
+RP                   : 7
+error                : 
+
+Nonterminals, with rules where they appear
+
+exp                  : 1 2 7 0
+fac                  : 1 2 3 4 5
+term                 : 4 5 6
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . exp
+    (1) exp -> . exp PLUS fac
+    (2) exp -> . exp MINUS fac
+    (3) exp -> . fac
+    (4) fac -> . fac MUL term
+    (5) fac -> . fac DIV term
+    (6) fac -> . term
+    (7) term -> . LP exp RP
+    (8) term -> . NUMBER
+
+    LP              shift and go to state 4
+    NUMBER          shift and go to state 5
+
+    exp                            shift and go to state 1
+    fac                            shift and go to state 2
+    term                           shift and go to state 3
+
+state 1
+
+    (0) S' -> exp .
+    (1) exp -> exp . PLUS fac
+    (2) exp -> exp . MINUS fac
+
+    PLUS            shift and go to state 6
+    MINUS           shift and go to state 7
+
+
+state 2
+
+    (3) exp -> fac .
+    (4) fac -> fac . MUL term
+    (5) fac -> fac . DIV term
+
+    PLUS            reduce using rule 3 (exp -> fac .)
+    MINUS           reduce using rule 3 (exp -> fac .)
+    $end            reduce using rule 3 (exp -> fac .)
+    RP              reduce using rule 3 (exp -> fac .)
+    MUL             shift and go to state 8
+    DIV             shift and go to state 9
+
+
+state 3
+
+    (6) fac -> term .
+
+    MUL             reduce using rule 6 (fac -> term .)
+    DIV             reduce using rule 6 (fac -> term .)
+    PLUS            reduce using rule 6 (fac -> term .)
+    MINUS           reduce using rule 6 (fac -> term .)
+    $end            reduce using rule 6 (fac -> term .)
+    RP              reduce using rule 6 (fac -> term .)
+
+
+state 4
+
+    (7) term -> LP . exp RP
+    (1) exp -> . exp PLUS fac
+    (2) exp -> . exp MINUS fac
+    (3) exp -> . fac
+    (4) fac -> . fac MUL term
+    (5) fac -> . fac DIV term
+    (6) fac -> . term
+    (7) term -> . LP exp RP
+    (8) term -> . NUMBER
+
+    LP              shift and go to state 4
+    NUMBER          shift and go to state 5
+
+    exp                            shift and go to state 10
+    fac                            shift and go to state 2
+    term                           shift and go to state 3
+
+state 5
+
+    (8) term -> NUMBER .
+
+    MUL             reduce using rule 8 (term -> NUMBER .)
+    DIV             reduce using rule 8 (term -> NUMBER .)
+    PLUS            reduce using rule 8 (term -> NUMBER .)
+    MINUS           reduce using rule 8 (term -> NUMBER .)
+    $end            reduce using rule 8 (term -> NUMBER .)
+    RP              reduce using rule 8 (term -> NUMBER .)
+
+
+state 6
+
+    (1) exp -> exp PLUS . fac
+    (4) fac -> . fac MUL term
+    (5) fac -> . fac DIV term
+    (6) fac -> . term
+    (7) term -> . LP exp RP
+    (8) term -> . NUMBER
+
+    LP              shift and go to state 4
+    NUMBER          shift and go to state 5
+
+    fac                            shift and go to state 11
+    term                           shift and go to state 3
+
+state 7
+
+    (2) exp -> exp MINUS . fac
+    (4) fac -> . fac MUL term
+    (5) fac -> . fac DIV term
+    (6) fac -> . term
+    (7) term -> . LP exp RP
+    (8) term -> . NUMBER
+
+    LP              shift and go to state 4
+    NUMBER          shift and go to state 5
+
+    fac                            shift and go to state 12
+    term                           shift and go to state 3
+
+state 8
+
+    (4) fac -> fac MUL . term
+    (7) term -> . LP exp RP
+    (8) term -> . NUMBER
+
+    LP              shift and go to state 4
+    NUMBER          shift and go to state 5
+
+    term                           shift and go to state 13
+
+state 9
+
+    (5) fac -> fac DIV . term
+    (7) term -> . LP exp RP
+    (8) term -> . NUMBER
+
+    LP              shift and go to state 4
+    NUMBER          shift and go to state 5
+
+    term                           shift and go to state 14
+
+state 10
+
+    (7) term -> LP exp . RP
+    (1) exp -> exp . PLUS fac
+    (2) exp -> exp . MINUS fac
+
+    RP              shift and go to state 15
+    PLUS            shift and go to state 6
+    MINUS           shift and go to state 7
+
+
+state 11
+
+    (1) exp -> exp PLUS fac .
+    (4) fac -> fac . MUL term
+    (5) fac -> fac . DIV term
+
+    PLUS            reduce using rule 1 (exp -> exp PLUS fac .)
+    MINUS           reduce using rule 1 (exp -> exp PLUS fac .)
+    $end            reduce using rule 1 (exp -> exp PLUS fac .)
+    RP              reduce using rule 1 (exp -> exp PLUS fac .)
+    MUL             shift and go to state 8
+    DIV             shift and go to state 9
+
+
+state 12
+
+    (2) exp -> exp MINUS fac .
+    (4) fac -> fac . MUL term
+    (5) fac -> fac . DIV term
+
+    PLUS            reduce using rule 2 (exp -> exp MINUS fac .)
+    MINUS           reduce using rule 2 (exp -> exp MINUS fac .)
+    $end            reduce using rule 2 (exp -> exp MINUS fac .)
+    RP              reduce using rule 2 (exp -> exp MINUS fac .)
+    MUL             shift and go to state 8
+    DIV             shift and go to state 9
+
+
+state 13
+
+    (4) fac -> fac MUL term .
+
+    MUL             reduce using rule 4 (fac -> fac MUL term .)
+    DIV             reduce using rule 4 (fac -> fac MUL term .)
+    PLUS            reduce using rule 4 (fac -> fac MUL term .)
+    MINUS           reduce using rule 4 (fac -> fac MUL term .)
+    $end            reduce using rule 4 (fac -> fac MUL term .)
+    RP              reduce using rule 4 (fac -> fac MUL term .)
+
+
+state 14
+
+    (5) fac -> fac DIV term .
+
+    MUL             reduce using rule 5 (fac -> fac DIV term .)
+    DIV             reduce using rule 5 (fac -> fac DIV term .)
+    PLUS            reduce using rule 5 (fac -> fac DIV term .)
+    MINUS           reduce using rule 5 (fac -> fac DIV term .)
+    $end            reduce using rule 5 (fac -> fac DIV term .)
+    RP              reduce using rule 5 (fac -> fac DIV term .)
+
+
+state 15
+
+    (7) term -> LP exp RP .
+
+    MUL             reduce using rule 7 (term -> LP exp RP .)
+    DIV             reduce using rule 7 (term -> LP exp RP .)
+    PLUS            reduce using rule 7 (term -> LP exp RP .)
+    MINUS           reduce using rule 7 (term -> LP exp RP .)
+    $end            reduce using rule 7 (term -> LP exp RP .)
+    RP              reduce using rule 7 (term -> LP exp RP .)
+
